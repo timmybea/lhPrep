@@ -10,18 +10,23 @@
 
 @interface SearchClass : NSObject
 
--(NSInteger)linearSearchArrayHigh:(NSArray*)array;
+-(NSNumber*)linearSearchArrayHigh:(NSArray*)array;
 
 @end
 
 
 @implementation SearchClass
 
--(NSInteger)linearSearchArrayHigh:(NSArray*)array {
-    NSInteger high = 0;
+-(NSNumber*)linearSearchArrayHigh:(NSArray*)array {
+    NSNumber *high;
+    
     for(NSInteger i = 0; i < array.count; i++) {
-        if(high < [array[i] integerValue]){
-            high = [array[i] integerValue];
+        if(high == nil){
+            high = [NSNumber numberWithInteger:[array[i] integerValue]];
+        }
+        
+        if(high.integerValue < [array[i] integerValue]){
+            high = [NSNumber numberWithInteger:[array[i] integerValue]];
         }
     }
     return high;
@@ -32,13 +37,11 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        NSArray *array = [NSArray arrayWithObjects:@31, @54, @11, @80, nil];
-        
-        NSLog(@"Array is: %@", array);
+        NSArray *array = [NSArray arrayWithObjects:@(-31), @(-54), @(-11), @(-80), nil];
         
         SearchClass *searchClass = [[SearchClass alloc]init];
         
-        NSLog(@"The highest value in the array is: %lu", [searchClass linearSearchArrayHigh:array]);
+        NSLog(@"The highest value in the array is: %@", [searchClass linearSearchArrayHigh:array]);
     }
     return 0;
 }
