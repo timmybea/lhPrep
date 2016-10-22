@@ -14,8 +14,11 @@
     NSLog(@"%@", _model);
 }
 
--(void)initWithModel:(NSString*)model {
-    _model = model;
+-(instancetype)initWithModel:(NSString*)model {
+    if(self = [super init]) {
+        _model = model;
+    }
+    return self;
 }
 
 @end

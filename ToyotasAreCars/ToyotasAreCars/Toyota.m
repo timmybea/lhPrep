@@ -13,9 +13,8 @@
 //note that 'super init' is the way of initializing as the superclass and then making the modifications that you want.
 //note that 'if(self)' is the way of checking that the initialization has worked and you don't have a nil return.
 
-- (id)init {
-    self = [super init];
-    if (self) {
+- (instancetype)init {
+    if (self = [super init]) {
         self.model = @"Prius";
     }
     return self;
