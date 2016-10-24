@@ -15,11 +15,11 @@
     
     for(NSInteger i = 0; i < self.count; i++) {
         if(high == nil){
-            high = [NSNumber numberWithInteger:[[self objectAtIndex:i] integerValue]];
+            high = [self objectAtIndex:i];
         }
         
-        if(high.integerValue < [[self objectAtIndex:i] integerValue]){
-            high = [NSNumber numberWithInteger:[[self objectAtIndex:i] integerValue]];
+        if(high < [self objectAtIndex:i]){
+            high = [self objectAtIndex:i];
         }
     }
     return high;
