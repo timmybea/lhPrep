@@ -22,11 +22,11 @@
     
     for(NSInteger i = 0; i < array.count; i++) {
         if(high == nil){
-            high = [NSNumber numberWithInteger:[array[i] integerValue]];
+            high = [NSNumber numberWithInteger:[[array objectAtIndex:i] integerValue]];
         }
         
-        if(high.integerValue < [array[i] integerValue]){
-            high = [NSNumber numberWithInteger:[array[i] integerValue]];
+        if(high.integerValue < [[array objectAtIndex:i] integerValue]){
+            high = [NSNumber numberWithInteger:[[array objectAtIndex:i] integerValue]];
         }
     }
     return high;
